@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "forex": "Forex",
+    "futures": "Futuros",
+    "affiliate": "Afiliado",
+    "plans": "Planes",
+    "rules": "Reglas",
+    "discord": "Discord",
+    "startChallenge": "Inicia Tu Desafío",
+    "login": "Iniciar Sesión"
+  },
+  "hero": {
+    "heading": "Trading Prop Con Pérdida Estática y Sin Límites de Tiempo",
+    "subtitle": "Opera hasta $200K con reglas que no cambian. Mantén hasta el 95% de las ganancias. Pagos procesados en ~7 horas una vez aprobados.",
+    "subtext": "Diseñado para traders serios que quieren financiación sin juegos.",
+    "rating": "4.8/5",
+    "reviews": "27,573 reseñas en Trustpilot",
+    "seeHowItWorks": "Ver Cómo Funciona",
+    "accountSize": "Tamaño de Cuenta",
+    "profitTarget": "Objetivo de Ganancias",
+    "targetToPass": "Objetivo del 8% para aprobar",
+    "maxDrawdown": "Pérdida Máxima",
+    "staticDrawdown": "Pérdida estática (12%)",
+    "currentProfit": "Ganancia Actual",
+    "gain": "ganancia",
+    "lastPayout": "Último Pago",
+    "paidInHours": "Pagado en 6.5 horas",
+    "live": "EN VIVO",
+    "fundedHeroAccount": "Cuenta FundedHero"
+  },
+  "pricing": {
+    "promoEnds": "Códigos de promoción terminan:",
+    "fundingPrograms": "Programas de Financiación",
+    "getFunded": "Obtén Financiación Hoy",
+    "chooseAccount": "Elige el tamaño de tu cuenta y tipo de desafío",
+    "selectSize": "Selecciona el Tamaño de Cuenta",
+    "account": "Cuenta",
+    "buyChallenge": "Comprar Desafío",
+    "challengeRules": "Reglas del Desafío",
+    "rule": "Regla",
+    "profitTarget": "Objetivo de Ganancias",
+    "dailyLoss": "Pérdida Diaria",
+    "maximumLoss": "Pérdida Máxima",
+    "drawdownType": "Tipo de Pérdida",
+    "static": "Estática",
+    "avgPayout": "Pago promedio de 7 horas",
+    "viewFullRules": "Ver reglas completas y preguntas frecuentes",
+    "save": "Ahorra",
+    "phase1": "Fase 1",
+    "phase2": "Fase 2",
+    "phase3": "Fase 3",
+    "funded": "Financiado"
+  },
+  "challenges": {
+    "1step": {
+      "name": "Hero de 1 Paso",
+      "description": "Mejor para traders intradía que quieren financiación rápida"
+    },
+    "2step": {
+      "name": "Hero de 2 Pasos",
+      "badge": "MÁS POPULAR",
+      "description": "Mejor para riesgo equilibrado y menor costo"
+    },
+    "3step": {
+      "name": "Hero de 3 Pasos",
+      "badge": "PRECIO MÁS BAJO",
+      "description": "Mejor para traders de swing con presupuesto limitado"
+    },
+    "fastpass": {
+      "name": "Pase Rápido",
+      "description": "Mejor para traders experimentados que quieren objetivos más fáciles"
+    },
+    "instant": {
+      "name": "Financiación Instantánea",
+      "badge": "SIN EVALUACIÓN",
+      "description": "Mejor para traders que quieren saltarse la evaluación completamente"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "forex": "外汇",
+    "futures": "期货",
+    "affiliate": "联盟",
+    "plans": "方案",
+    "rules": "规则",
+    "discord": "Discord",
+    "startChallenge": "开始挑战",
+    "login": "登录"
+  },
+  "hero": {
+    "heading": "静态回撤和无时间限制的自营交易",
+    "subtitle": "交易高达$200K，规则不变。保留高达95%的利润。批准后约7小时处理付款。",
+    "subtext": "专为需要资金且不玩游戏的严肃交易者打造。",
+    "rating": "4.8/5",
+    "reviews": "Trustpilot上27,573条评论",
+    "seeHowItWorks": "查看工作原理",
+    "accountSize": "账户规模",
+    "profitTarget": "利润目标",
+    "targetToPass": "通过需8%目标",
+    "maxDrawdown": "最大回撤",
+    "staticDrawdown": "静态回撤（12%）",
+    "currentProfit": "当前利润",
+    "gain": "收益",
+    "lastPayout": "上次付款",
+    "paidInHours": "6.5小时内支付",
+    "live": "直播",
+    "fundedHeroAccount": "FundedHero账户"
+  },
+  "pricing": {
+    "promoEnds": "促销代码结束：",
+    "fundingPrograms": "资金计划",
+    "getFunded": "今天获得资金",
+    "chooseAccount": "选择您的账户规模和挑战类型",
+    "selectSize": "选择账户规模",
+    "account": "账户",
+    "buyChallenge": "购买挑战",
+    "challengeRules": "挑战规则",
+    "rule": "规则",
+    "profitTarget": "利润目标",
+    "dailyLoss": "每日亏损",
+    "maximumLoss": "最大亏损",
+    "drawdownType": "回撤类型",
+    "static": "静态",
+    "avgPayout": "平均7小时付款",
+    "viewFullRules": "查看完整规则和常见问题",
+    "save": "节省",
+    "phase1": "阶段1",
+    "phase2": "阶段2",
+    "phase3": "阶段3",
+    "funded": "已获资金"
+  },
+  "challenges": {
+    "1step": {
+      "name": "1步Hero",
+      "description": "最适合想要快速获得资金的日内交易者"
+    },
+    "2step": {
+      "name": "2步Hero",
+      "badge": "最受欢迎",
+      "description": "最适合平衡风险和较低成本"
+    },
+    "3step": {
+      "name": "3步Hero",
+      "badge": "最低价格",
+      "description": "最适合预算有限的波段交易者"
+    },
+    "fastpass": {
+      "name": "快速通行证",
+      "description": "最适合想要更轻松目标的经验丰富的交易者"
+    },
+    "instant": {
+      "name": "即时资金",
+      "badge": "无需评估",
+      "description": "最适合想要完全跳过评估的交易者"
+    }
+  }
+}

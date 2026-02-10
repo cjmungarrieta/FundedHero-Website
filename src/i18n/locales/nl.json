@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "forex": "Forex",
+    "futures": "Futures",
+    "affiliate": "Partner",
+    "plans": "Plannen",
+    "rules": "Regels",
+    "discord": "Discord",
+    "startChallenge": "Start Je Uitdaging",
+    "login": "Inloggen"
+  },
+  "hero": {
+    "heading": "Prop Trading Met Statische Drawdown & Geen Tijdslimieten",
+    "subtitle": "Handel tot $200K met regels die niet veranderen. Houd tot 95% van de winsten. Uitbetalingen verwerkt in ~7 uur na goedkeuring.",
+    "subtext": "Gebouwd voor serieuze traders die financiering zonder spelletjes willen.",
+    "rating": "4.8/5",
+    "reviews": "27,573 beoordelingen op Trustpilot",
+    "seeHowItWorks": "Zie Hoe Het Werkt",
+    "accountSize": "Accountgrootte",
+    "profitTarget": "Winstdoel",
+    "targetToPass": "8% doel om te slagen",
+    "maxDrawdown": "Maximale Drawdown",
+    "staticDrawdown": "Statische drawdown (12%)",
+    "currentProfit": "Huidige Winst",
+    "gain": "winst",
+    "lastPayout": "Laatste Uitbetaling",
+    "paidInHours": "Betaald in 6.5 uur",
+    "live": "LIVE",
+    "fundedHeroAccount": "FundedHero Account"
+  },
+  "pricing": {
+    "promoEnds": "Promotiecodes eindigen:",
+    "fundingPrograms": "Financieringsprogramma's",
+    "getFunded": "Krijg Vandaag Financiering",
+    "chooseAccount": "Kies je accountgrootte en uitdagingstype",
+    "selectSize": "Selecteer Accountgrootte",
+    "account": "Account",
+    "buyChallenge": "Koop Uitdaging",
+    "challengeRules": "Uitdagingsregels",
+    "rule": "Regel",
+    "profitTarget": "Winstdoel",
+    "dailyLoss": "Dagelijks Verlies",
+    "maximumLoss": "Maximaal Verlies",
+    "drawdownType": "Drawdown Type",
+    "static": "Statisch",
+    "avgPayout": "Gemiddelde uitbetaling van 7 uur",
+    "viewFullRules": "Bekijk volledige regels en FAQ",
+    "save": "Bespaar",
+    "phase1": "Fase 1",
+    "phase2": "Fase 2",
+    "phase3": "Fase 3",
+    "funded": "Gefinancierd"
+  },
+  "challenges": {
+    "1step": {
+      "name": "1 Stap Hero",
+      "description": "Het beste voor intradagtraders die snel financiering willen"
+    },
+    "2step": {
+      "name": "2 Stappen Hero",
+      "badge": "MEEST POPULAIR",
+      "description": "Het beste voor gebalanceerd risico en lagere kosten"
+    },
+    "3step": {
+      "name": "3 Stappen Hero",
+      "badge": "LAAGSTE PRIJS",
+      "description": "Het beste voor swing traders met een budget"
+    },
+    "fastpass": {
+      "name": "Snelle Doorgang",
+      "description": "Het beste voor ervaren traders die gemakkelijkere doelen willen"
+    },
+    "instant": {
+      "name": "Directe Financiering",
+      "badge": "GEEN EVALUATIE",
+      "description": "Het beste voor traders die de evaluatie volledig willen overslaan"
+    }
+  }
+}

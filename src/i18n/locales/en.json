@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "forex": "Forex",
+    "futures": "Futures",
+    "affiliate": "Affiliate",
+    "plans": "Plans",
+    "rules": "Rules",
+    "discord": "Discord",
+    "startChallenge": "Start Your Challenge",
+    "login": "Login"
+  },
+  "hero": {
+    "heading": "Prop Trading With Static Drawdown & No Time Limits",
+    "subtitle": "Trade up to $200K with rules that don't move. Keep up to 95% of profits. Payouts processed in ~7 hours once approved.",
+    "subtext": "Built for serious traders who want funding without games.",
+    "rating": "4.8/5",
+    "reviews": "27,573 reviews on Trustpilot",
+    "seeHowItWorks": "See How It Works",
+    "accountSize": "Account Size",
+    "profitTarget": "Profit Target",
+    "targetToPass": "8% target to pass",
+    "maxDrawdown": "Max Drawdown",
+    "staticDrawdown": "Static drawdown (12%)",
+    "currentProfit": "Current Profit",
+    "gain": "gain",
+    "lastPayout": "Last Payout",
+    "paidInHours": "Paid in 6.5 hours",
+    "live": "LIVE",
+    "fundedHeroAccount": "FundedHero Account"
+  },
+  "pricing": {
+    "promoEnds": "Promo codes ends:",
+    "fundingPrograms": "Funding Programs",
+    "getFunded": "Get Funded Today",
+    "chooseAccount": "Choose your account size and challenge type",
+    "selectSize": "Select Account Size",
+    "account": "Account",
+    "buyChallenge": "Buy Challenge",
+    "challengeRules": "Challenge Rules",
+    "rule": "Rule",
+    "profitTarget": "Profit Target",
+    "dailyLoss": "Daily Loss",
+    "maximumLoss": "Maximum Loss",
+    "drawdownType": "Drawdown Type",
+    "static": "Static",
+    "avgPayout": "7-hour average payout",
+    "viewFullRules": "View full rules & FAQ",
+    "save": "Save",
+    "phase1": "Phase 1",
+    "phase2": "Phase 2",
+    "phase3": "Phase 3",
+    "funded": "Funded"
+  },
+  "challenges": {
+    "1step": {
+      "name": "1 Step Hero",
+      "description": "Best for intraday traders who want funding fast"
+    },
+    "2step": {
+      "name": "2 Step Hero",
+      "badge": "MOST POPULAR",
+      "description": "Best for balanced risk and lower cost"
+    },
+    "3step": {
+      "name": "3 Step Hero",
+      "badge": "LOWEST PRICE",
+      "description": "Best for swing traders on a budget"
+    },
+    "fastpass": {
+      "name": "Fast Pass",
+      "description": "Best for experienced traders who want easier targets"
+    },
+    "instant": {
+      "name": "Instant Funded",
+      "badge": "NO EVALUATION",
+      "description": "Best for traders who want to skip evaluation entirely"
+    }
+  }
+}
