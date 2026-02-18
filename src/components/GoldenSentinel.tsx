@@ -12,8 +12,8 @@ export function CommunityGuardian() {
       <svg viewBox="0 0 80 80" className="w-full h-full relative z-10">
         <defs>
           <linearGradient id="communityGold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f8df51" />
-            <stop offset="50%" stopColor="#e4b833" />
+            <stop offset="0%" stopColor="#FFD700" />
+            <stop offset="50%" stopColor="#FFC800" />
             <stop offset="100%" stopColor="#b89328" />
           </linearGradient>
           <linearGradient id="communityLight" x1="0%" y1="0%" x2="0%" y2="100%">

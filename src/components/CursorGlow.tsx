@@ -35,8 +35,8 @@ export default function CursorGlow() {
         height: '600px',
         borderRadius: '50%',
         background: isInteracting
-          ? 'radial-gradient(circle, rgba(228, 184, 51, 0.15) 0%, transparent 70%)'
-          : 'radial-gradient(circle, rgba(228, 184, 51, 0.08) 0%, transparent 70%)',
+          ? 'radial-gradient(circle, rgba(255, 200, 0, 0.15) 0%, transparent 70%)'
+          : 'radial-gradient(circle, rgba(255, 200, 0, 0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
         zIndex: 9999,
         mixBlendMode: 'screen',

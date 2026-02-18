@@ -65,7 +65,7 @@ export default function LanguageSwitcher() {
               {languages.map((lang) => (
                 <motion.button
                   key={lang.code}
-                  whileHover={{ backgroundColor: 'rgba(228, 184, 51, 0.1)' }}
+                  whileHover={{ backgroundColor: 'rgba(255, 200, 0, 0.1)' }}
                   onClick={() => handleLanguageChange(lang.code)}
                   className="w-full px-4 py-3 text-left flex items-center gap-3 transition-colors border-b border-white/5 last:border-0"
                 >

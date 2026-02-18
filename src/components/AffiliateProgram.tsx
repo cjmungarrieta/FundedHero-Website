@@ -140,7 +140,7 @@ export default function AffiliateProgram() {
               whileHover={{ y: -10 }}
               className={`relative overflow-hidden rounded-3xl p-8 ${
                 tier.highlight
-                  ? 'bg-gradient-to-br from-gold/20 via-black/80 to-black/90 border-2 border-gold shadow-[0_0_50px_rgba(228,184,51,0.3)]'
+                  ? 'bg-gradient-to-br from-gold/20 via-dark/80 to-dark/90 border-2 border-gold shadow-[0_0_50px_rgba(255,200,0,0.3)]'
                   : 'glass-ultra border border-white/10'
               }`}
             >

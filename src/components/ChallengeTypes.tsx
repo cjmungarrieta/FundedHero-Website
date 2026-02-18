@@ -109,7 +109,7 @@ export default function ChallengeTypes() {
                 className="glass-premium rounded-3xl p-6 backdrop-blur-2xl relative group cursor-pointer"
                 style={{
                   background: challenge.popular
-                    ? 'linear-gradient(135deg, rgba(228, 184, 51, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)'
+                    ? 'linear-gradient(135deg, rgba(255, 200, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%)'
                     : 'rgba(0, 0, 0, 0.6)',
                 }}
               >

@@ -62,7 +62,7 @@ export default function VoiceAgent() {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Dark gradient background matching site theme */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0d0d0f] to-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark-card to-dark"></div>
       
       {/* Gold aurora/glow effect */}
       <div className="absolute inset-0 overflow-hidden">
@@ -74,7 +74,7 @@ export default function VoiceAgent() {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
           style={{
-            background: 'radial-gradient(circle, rgba(228, 184, 51, 0.15) 0%, rgba(228, 184, 51, 0.05) 40%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255, 200, 0, 0.15) 0%, rgba(255, 200, 0, 0.05) 40%, transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
@@ -86,7 +86,7 @@ export default function VoiceAgent() {
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/2 left-0 right-0 h-[300px] -translate-y-1/2"
           style={{
-            background: 'linear-gradient(90deg, transparent, rgba(228, 184, 51, 0.08), rgba(248, 223, 81, 0.05), rgba(228, 184, 51, 0.08), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(255, 200, 0, 0.08), rgba(255, 215, 0, 0.05), rgba(255, 200, 0, 0.08), transparent)',
             filter: 'blur(80px)',
           }}
         />
@@ -141,12 +141,12 @@ export default function VoiceAgent() {
             {/* Main button */}
             <motion.button
               onClick={handleMicClick}
-              whileHover={{ scale: 1.08, boxShadow: '0 0 80px rgba(228, 184, 51, 0.4)' }}
+              whileHover={{ scale: 1.08, boxShadow: '0 0 80px rgba(255, 200, 0, 0.4)' }}
               whileTap={{ scale: 0.95 }}
               className={`relative w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center transition-all duration-500 cursor-pointer ${
                 isActive 
-                  ? 'bg-gradient-to-br from-gold to-gold-light shadow-[0_0_60px_rgba(228,184,51,0.5)]' 
-                  : 'bg-gradient-to-br from-gold/20 to-gold-light/10 border-2 border-gold/50 hover:border-gold/80 shadow-[0_0_40px_rgba(228,184,51,0.15)]'
+                  ? 'bg-gradient-to-br from-gold to-gold-light shadow-[0_0_60px_rgba(255,200,0,0.5)]' 
+                  : 'bg-gradient-to-br from-gold/20 to-gold-light/10 border-2 border-gold/50 hover:border-gold/80 shadow-[0_0_40px_rgba(255,200,0,0.15)]'
               }`}
             >
               {/* Inner glow ring */}
@@ -178,7 +178,7 @@ export default function VoiceAgent() {
               <span className="text-white">Still have questions? </span>
               <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">Ask Propi!</span>
             </h2>
-            <p className="text-gray-400 text-base md:text-lg flex items-center justify-center gap-2 flex-wrap">
+            <p className="text-text-muted text-base md:text-lg flex items-center justify-center gap-2 flex-wrap">
               Tap the <span className="inline-flex items-center gap-1 text-gold"><Mic className="w-4 h-4" /> mic</span> for instant answers in <span className="text-white font-medium">32 languages</span>
             </p>
             {isActive && (

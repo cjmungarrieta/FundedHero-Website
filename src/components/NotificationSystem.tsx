@@ -59,7 +59,7 @@ export default function NotificationSystem() {
             transition={{ type: 'spring', stiffness: 500, damping: 30 }}
             className="glass-ultra rounded-2xl p-4 backdrop-blur-2xl border-2 border-gold/40 shadow-2xl pointer-events-auto max-w-sm"
             style={{
-              boxShadow: '0 0 40px rgba(228, 184, 51, 0.4), 0 8px 32px rgba(0, 0, 0, 0.8)',
+              boxShadow: '0 0 40px rgba(255, 200, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.8)',
             }}
           >
             <div className="flex items-start gap-3">

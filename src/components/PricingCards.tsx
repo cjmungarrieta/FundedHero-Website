@@ -247,7 +247,7 @@ export default function PricingCards() {
                 className={`relative p-5 rounded-2xl font-semibold transition-all duration-500 text-left ${
                   activeChallenge === type.id
                     ? 'glass-ultra border-2 border-gold/50 gold-glow'
-                    : 'glass-premium hover:glass-ultra hover:border-gold/30 hover:shadow-[0_0_30px_rgba(228,184,51,0.3)]'
+                    : 'glass-premium hover:glass-ultra hover:border-gold/30 hover:shadow-[0_0_30px_rgba(255,200,0,0.3)]'
                 }`}
               >
                 {type.badge && (
@@ -293,7 +293,7 @@ export default function PricingCards() {
                 className={`px-5 py-3 rounded-xl font-bold transition-all duration-300 ${
                   selectedSize === size.value
                     ? 'bg-gold text-black shadow-xl gold-glow'
-                    : 'glass text-white hover:glass-premium hover:border-gold/30 hover:shadow-[0_0_25px_rgba(228,184,51,0.2)]'
+                    : 'glass text-white hover:glass-premium hover:border-gold/30 hover:shadow-[0_0_25px_rgba(255,200,0,0.2)]'
                 }`}
               >
                 {size.label}
@@ -326,7 +326,7 @@ export default function PricingCards() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={tiltStyle}
-            className="glass-ultra rounded-3xl p-8 md:p-10 premium-shadow-lg tilt-card relative z-10 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_0_60px_rgba(228,184,51,0.4)]"
+            className="glass-ultra rounded-3xl p-8 md:p-10 premium-shadow-lg tilt-card relative z-10 transition-all duration-500 hover:border-gold/40 hover:shadow-[0_0_60px_rgba(255,200,0,0.4)]"
           >
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-8 border-b border-white/10">
               <div>

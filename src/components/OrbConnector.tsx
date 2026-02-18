@@ -19,10 +19,10 @@ export default function OrbConnector() {
       >
         <defs>
           <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#e4b833" stopOpacity="0" />
-            <stop offset="20%" stopColor="#e4b833" stopOpacity="0.6" />
-            <stop offset="80%" stopColor="#f8df51" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#e4b833" stopOpacity="0" />
+            <stop offset="0%" stopColor="#FFC800" stopOpacity="0" />
+            <stop offset="20%" stopColor="#FFC800" stopOpacity="0.6" />
+            <stop offset="80%" stopColor="#FFD700" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#FFC800" stopOpacity="0" />
           </linearGradient>
 
           <filter id="pathGlow">
@@ -62,7 +62,7 @@ export default function OrbConnector() {
               cx={x}
               cy="50"
               r={4}
-              fill="#e4b833"
+              fill="#FFC800"
               filter="url(#pathGlow)"
               initial={{ opacity: 0.3, scale: 1 }}
               animate={{

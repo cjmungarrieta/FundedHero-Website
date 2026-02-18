@@ -92,7 +92,7 @@ export default function Statistics() {
                     `${stat.prefix || ''}${displayNumber}${displaySuffix}`
                   )}
                 </div>
-                <div className="text-gray-400 font-medium">{stat.label}</div>
+                <div className="text-text-muted font-medium">{stat.label}</div>
               </motion.div>
             );
           })}

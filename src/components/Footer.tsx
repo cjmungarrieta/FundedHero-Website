@@ -55,7 +55,7 @@ export default function Footer() {
                 />
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05, y: -2, boxShadow: "0 0 30px rgba(228, 184, 51, 0.6)" }}
+                  whileHover={{ scale: 1.05, y: -2, boxShadow: "0 0 30px rgba(255, 200, 0, 0.6)" }}
                   whileTap={{ scale: 0.95 }}
                   className="px-6 py-3 bg-gradient-to-r from-gold via-gold-light to-gold text-black rounded-xl font-bold flex items-center gap-2 gold-glow whitespace-nowrap text-sm transition-all duration-300"
                 >
@@ -78,7 +78,7 @@ export default function Footer() {
               <img
                 src="/funded-hero-3_(1) copy.png"
                 alt="FundedHero Logo"
-                className="h-14 w-auto object-contain mb-4 drop-shadow-[0_0_15px_rgba(228,184,51,0.4)]"
+                className="h-14 w-auto object-contain mb-4 drop-shadow-[0_0_15px_rgba(255,200,0,0.4)]"
               />
             </motion.div>
             <p className="text-gray-300 leading-relaxed mb-6 text-sm">
@@ -124,7 +124,7 @@ export default function Footer() {
                   whileHover={{
                     scale: 1.15,
                     y: -4,
-                    boxShadow: "0 0 20px rgba(228, 184, 51, 0.4)"
+                    boxShadow: "0 0 20px rgba(255, 200, 0, 0.4)"
                   }}
                   whileTap={{ scale: 0.95 }}
                   className="w-9 h-9 glass-premium rounded-lg flex items-center justify-center hover:glass-ultra transition-all duration-300 group hover:border-gold/30"

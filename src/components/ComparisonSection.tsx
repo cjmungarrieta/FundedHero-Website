@@ -94,7 +94,7 @@ export default function ComparisonSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.05 }}
-                      whileHover={{ backgroundColor: 'rgba(228, 184, 51, 0.05)', scale: 1.01 }}
+                      whileHover={{ backgroundColor: 'rgba(255, 200, 0, 0.05)', scale: 1.01 }}
                       className="border-b border-white/5 transition-all duration-300 hover:border-gold/20"
                     >
                       <td className="py-5 px-6">

@@ -13,7 +13,7 @@ export default function Navigation() {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.95)']
+    ['rgba(18, 18, 18, 0)', 'rgba(18, 18, 18, 0.95)']
   );
 
   const handleForexClick = () => {
@@ -45,7 +45,7 @@ export default function Navigation() {
                 <img
                   src="/funded-hero-3_(1) copy.png"
                   alt="FundedHero Logo"
-                  className="h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(228,184,51,0.4)]"
+                  className="h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,200,0,0.4)]"
                 />
               </motion.div>
             </Link>

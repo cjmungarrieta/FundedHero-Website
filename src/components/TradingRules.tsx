@@ -36,8 +36,8 @@ const rules = [
 
 export default function TradingRules() {
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(16,185,129,0.1),transparent_50%)]"></div>
+    <section className="py-24 bg-dark relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(50,205,50,0.1),transparent_50%)]"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -50,7 +50,7 @@ export default function TradingRules() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Trading Rules & Objectives
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-text-muted max-w-2xl mx-auto">
             Clear, straightforward rules designed for trader success
           </p>
         </motion.div>
@@ -63,10 +63,10 @@ export default function TradingRules() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-8 bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50"
+              className="p-8 bg-dark-card/80 backdrop-blur-sm rounded-2xl border border-white/10"
             >
               <div className="flex items-center gap-2 mb-6">
-                <Info className="w-6 h-6 text-emerald-400" />
+                <Info className="w-6 h-6 text-success" />
                 <h3 className="text-2xl font-bold text-white">{rule.category}</h3>
               </div>
 
@@ -74,11 +74,11 @@ export default function TradingRules() {
                 {rule.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start gap-3">
                     {item.allowed ? (
-                      <Check className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                      <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                     ) : (
                       <X className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
                     )}
-                    <span className="text-slate-300">{item.text}</span>
+                    <span className="text-text-muted-light">{item.text}</span>
                   </li>
                 ))}
               </ul>
@@ -91,13 +91,13 @@ export default function TradingRules() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-xl max-w-4xl mx-auto"
+          className="mt-12 p-6 bg-success/10 border border-success/20 rounded-xl max-w-4xl mx-auto"
         >
           <div className="flex items-start gap-4">
-            <Info className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
+            <Info className="w-6 h-6 text-success flex-shrink-0 mt-1" />
             <div>
               <h4 className="text-lg font-semibold text-white mb-2">Important Note</h4>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-text-muted-light leading-relaxed">
                 All trades must be closed before 4:59 PM EST on Friday. No holding positions over the weekend.
                 News trading is allowed with proper risk management. EA/Bot trading permitted on funded accounts.
               </p>

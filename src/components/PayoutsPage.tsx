@@ -32,7 +32,7 @@ const statistics = [
     label: 'Monthly Average',
     value: '$856K',
     change: '+22% from last month',
-    color: 'from-success to-green-400',
+    color: 'from-success to-success',
   },
   {
     icon: CheckCircle,
@@ -73,7 +73,7 @@ const withdrawalMethods = [
 export default function PayoutsPage() {
   return (
     <section className="py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark to-dark"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
