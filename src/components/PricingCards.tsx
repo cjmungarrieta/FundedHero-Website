@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { Crown, Sparkles, Zap, ArrowRight, Clock, TrendingUp, Target, Flame } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
-import { getCheckoutUrl, URLS } from '../constants/urls';
+import { getCheckoutUrl, URLS, PRODUCT_IDS, PRICING_API_URL, PRICING_API_TOKEN } from '../constants/urls';
 
 const promoEndDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000);
+
+type PricingEntry = { price: number; promoPrice: number };
+type PricingMap = Record<string, Record<number, PricingEntry>>;
 
 const challengeTypes = [
   { id: '1step', name: '1 Step Hero', badge: null, description: 'Best for intraday traders who want funding fast', icon: Zap },
@@ -25,64 +28,6 @@ const accountSizes = [
   { value: 150000, label: '$150K' },
   { value: 200000, label: '$200K' },
 ];
-
-const pricingData: Record<string, Record<number, { price: number; promoPrice: number }>> = {
-  '1step': {
-    2500: { price: 51, promoPrice: 43 },
-    5000: { price: 70, promoPrice: 59 },
-    10000: { price: 142, promoPrice: 120 },
-    25000: { price: 285, promoPrice: 241 },
-    50000: { price: 428, promoPrice: 362 },
-    75000: { price: 566, promoPrice: 479 },
-    100000: { price: 697, promoPrice: 590 },
-    150000: { price: 1000, promoPrice: 846 },
-    200000: { price: 1283, promoPrice: 1086 },
-  },
-  '2step': {
-    2500: { price: 36, promoPrice: 31 },
-    5000: { price: 51, promoPrice: 43 },
-    10000: { price: 85, promoPrice: 72 },
-    25000: { price: 213, promoPrice: 180 },
-    50000: { price: 356, promoPrice: 301 },
-    75000: { price: 456, promoPrice: 386 },
-    100000: { price: 554, promoPrice: 469 },
-    150000: { price: 785, promoPrice: 664 },
-    200000: { price: 1000, promoPrice: 846 },
-  },
-  '3step': {
-    2500: { price: 29, promoPrice: 24 },
-    5000: { price: 40, promoPrice: 34 },
-    10000: { price: 68, promoPrice: 57 },
-    25000: { price: 170, promoPrice: 144 },
-    50000: { price: 285, promoPrice: 241 },
-    75000: { price: 371, promoPrice: 314 },
-    100000: { price: 442, promoPrice: 374 },
-    150000: { price: 628, promoPrice: 531 },
-    200000: { price: 800, promoPrice: 677 },
-  },
-  'fastpass': {
-    2500: { price: 65, promoPrice: 55 },
-    5000: { price: 100, promoPrice: 85 },
-    10000: { price: 211, promoPrice: 178 },
-    25000: { price: 497, promoPrice: 420 },
-    50000: { price: 822, promoPrice: 695 },
-    75000: { price: 1071, promoPrice: 906 },
-    100000: { price: 1282, promoPrice: 1085 },
-    150000: { price: 1752, promoPrice: 1483 },
-    200000: { price: 2202, promoPrice: 1863 },
-  },
-  'instant': {
-    2500: { price: 91, promoPrice: 70 },
-    5000: { price: 142, promoPrice: 102 },
-    10000: { price: 298, promoPrice: 213 },
-    25000: { price: 703, promoPrice: 504 },
-    50000: { price: 1164, promoPrice: 833 },
-    75000: { price: 1494, promoPrice: 1071 },
-    100000: { price: 1816, promoPrice: 1300 },
-    150000: { price: 2752, promoPrice: 1773 },
-    200000: { price: 3123, promoPrice: 2236 },
-  },
-};
 
 const rulesData: Record<string, { phases: string[]; rules: { label: string; values: string[] }[] }> = {
   '1step': {
@@ -137,8 +82,90 @@ export default function PricingCards() {
   const [selectedSize, setSelectedSize] = useState(50000);
   const cardRef = useRef<HTMLDivElement>(null);
   const [tiltStyle, setTiltStyle] = useState({});
+  const [wooPricing, setWooPricing] = useState<PricingMap | null>(null);
+  const [isPricingLoading, setIsPricingLoading] = useState(false);
 
-  const currentPricing = pricingData[activeChallenge]?.[selectedSize];
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPricing = async () => {
+      try {
+        setIsPricingLoading(true);
+
+        const ids: number[] = [];
+        Object.values(PRODUCT_IDS).forEach(map => {
+          Object.values(map).forEach(id => {
+            if (!ids.includes(id)) {
+              ids.push(id);
+            }
+          });
+        });
+
+        if (ids.length === 0) {
+          return;
+        }
+
+        const params = new URLSearchParams();
+        params.set('ids', ids.join(','));
+        params.set('token', PRICING_API_TOKEN);
+
+        const response = await fetch(`${PRICING_API_URL}?${params.toString()}`);
+        if (!response.ok) {
+          throw new Error(`Failed to load pricing: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (cancelled) {
+          return;
+        }
+
+        const products = Array.isArray(data.products) ? data.products : [];
+        const byId = new Map<number, any>();
+        products.forEach((p: any) => {
+          if (p && p.id) {
+            byId.set(Number(p.id), p);
+          }
+        });
+
+        const map: PricingMap = {};
+
+        Object.entries(PRODUCT_IDS).forEach(([challengeType, sizes]) => {
+          map[challengeType] = {};
+          Object.entries(sizes).forEach(([sizeStr, productId]) => {
+            const product = byId.get(productId as number);
+            if (product) {
+              const priceNumber = Number(product.regular_price || product.price);
+              const promoNumber = product.sale_price !== null && product.sale_price !== undefined && product.sale_price !== ''
+                ? Number(product.sale_price)
+                : Number(product.price);
+
+              map[challengeType][Number(sizeStr)] = {
+                price: priceNumber,
+                promoPrice: promoNumber,
+              };
+            }
+          });
+        });
+
+        setWooPricing(map);
+      } catch (error) {
+        console.error('Error loading WooCommerce pricing', error);
+      } finally {
+        if (!cancelled) {
+          setIsPricingLoading(false);
+        }
+      }
+    };
+
+    loadPricing();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const currentPricing =
+    wooPricing?.[activeChallenge]?.[selectedSize] || null;
   const currentRules = rulesData[activeChallenge];
   const activeType = challengeTypes.find(t => t.id === activeChallenge);
 
@@ -333,18 +360,28 @@ export default function PricingCards() {
                 <div className="text-gray-400 mb-2">{activeType?.name} - {accountSizes.find(s => s.value === selectedSize)?.label} Account</div>
                 <div className="flex items-baseline gap-4">
                   <motion.span
-                    key={currentPricing?.promoPrice}
+                    key={currentPricing ? currentPricing.promoPrice : 'loading'}
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     className="text-6xl font-display font-bold text-gradient-gold"
                   >
-                    ${currentPricing?.promoPrice}
+                    {currentPricing
+                      ? `$${currentPricing.promoPrice}`
+                      : isPricingLoading
+                        ? '...'
+                        : '$0'}
                   </motion.span>
                   <div>
-                    <div className="text-gray-500 line-through text-xl">${currentPricing?.price}</div>
-                    <div className="text-success font-bold">
-                      Save ${currentPricing ? currentPricing.price - currentPricing.promoPrice : 0}
-                    </div>
+                    {currentPricing && (
+                      <>
+                        <div className="text-gray-500 line-through text-xl">
+                          ${currentPricing.price}
+                        </div>
+                        <div className="text-success font-bold">
+                          Save ${currentPricing.price - currentPricing.promoPrice}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
