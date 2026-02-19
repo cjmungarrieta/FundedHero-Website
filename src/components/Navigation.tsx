@@ -43,7 +43,7 @@ export default function Navigation() {
                 whileHover={{ scale: 1.02 }}
               >
                 <img
-                  src="/funded-hero-3_(1) copy.png"
+                  src="/logo.png"
                   alt="FundedHero Logo"
                   className="h-16 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,200,0,0.4)]"
                 />

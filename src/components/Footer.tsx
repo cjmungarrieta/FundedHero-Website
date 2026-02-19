@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CreditCard, Bitcoin } from 'lucide-react';
+import { ArrowRight, CreditCard, Bitcoin, Instagram, Facebook, Twitter, MessageCircle, Send } from 'lucide-react';
 import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { URLS } from '../constants/urls';
@@ -8,11 +8,11 @@ export default function Footer() {
   const [email, setEmail] = useState('');
 
   const socialLinks = [
-    { href: URLS.INSTAGRAM, label: 'Instagram', icon: '📷' },
-    { href: URLS.FACEBOOK, label: 'Facebook', icon: '📘' },
-    { href: URLS.TWITTER, label: 'X (Twitter)', icon: '𝕏' },
-    { href: URLS.DISCORD, label: 'Discord', icon: '💬' },
-    { href: URLS.TELEGRAM, label: 'Telegram', icon: '✈️' },
+    { href: URLS.INSTAGRAM, label: 'Instagram', icon: Instagram },
+    { href: URLS.FACEBOOK, label: 'Facebook', icon: Facebook },
+    { href: URLS.TWITTER, label: 'X (Twitter)', icon: Twitter },
+    { href: URLS.DISCORD, label: 'Discord', icon: MessageCircle },
+    { href: URLS.TELEGRAM, label: 'Telegram', icon: Send },
   ];
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -76,7 +76,7 @@ export default function Footer() {
               className="mb-4"
             >
               <img
-                src="/funded-hero-3_(1) copy.png"
+                src="/logo.png"
                 alt="FundedHero Logo"
                 className="h-14 w-auto object-contain mb-4 drop-shadow-[0_0_15px_rgba(255,200,0,0.4)]"
               />
@@ -93,8 +93,6 @@ export default function Footer() {
             <div className="space-y-2">
               <motion.a
                 href={URLS.TERMS}
-                target="_blank"
-                rel="noopener noreferrer"
                 whileHover={{ x: 4 }}
                 className="block text-gray-300 hover:text-gold transition-all duration-200 text-sm"
               >
@@ -102,8 +100,6 @@ export default function Footer() {
               </motion.a>
               <motion.a
                 href={URLS.PRIVACY}
-                target="_blank"
-                rel="noopener noreferrer"
                 whileHover={{ x: 4 }}
                 className="block text-gray-300 hover:text-gold transition-all duration-200 text-sm"
               >
@@ -115,7 +111,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-display font-bold text-base mb-4">Follow us</h3>
             <div className="flex items-center gap-3 mb-6">
-              {socialLinks.map(({ href, label, icon }) => (
+              {socialLinks.map(({ href, label, icon: Icon }) => (
                 <motion.a
                   key={label}
                   href={href}
@@ -130,7 +126,7 @@ export default function Footer() {
                   className="w-9 h-9 glass-premium rounded-lg flex items-center justify-center hover:glass-ultra transition-all duration-300 group hover:border-gold/30"
                   aria-label={label}
                 >
-                  <span className="text-sm group-hover:scale-110 transition-transform">{icon}</span>
+                  <Icon className="w-4 h-4 text-gray-200 group-hover:text-gold transition-colors group-hover:scale-110 transition-transform" />
                 </motion.a>
               ))}
             </div>

@@ -165,7 +165,7 @@ export default function PricingCards() {
 
   const handleBuyChallenge = () => {
     const checkoutUrl = getCheckoutUrl(activeChallenge, selectedSize);
-    window.open(checkoutUrl, '_blank');
+    window.location.href = checkoutUrl;
   };
 
   return (

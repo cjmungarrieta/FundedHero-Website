@@ -10,7 +10,7 @@ export const URLS = {
   FUTURES_SITE: 'https://fundedherofutures.com/',
   
   // Authentication
-  LOGIN: 'https://fundedhero.com/my-account/',
+  LOGIN: 'https://app.fundedhero.com/',
   AFFILIATE_DASHBOARD: 'https://fundedhero.com/my-account/',
   
   // Legal
@@ -96,7 +96,7 @@ export const PRODUCT_IDS: Record<string, Record<number, number>> = {
 export const getCheckoutUrl = (challengeType: string, accountSize: number): string => {
   const productId = PRODUCT_IDS[challengeType]?.[accountSize];
   if (productId) {
-    return `https://fundedhero.com/?add-to-cart=${productId}`;
+    return `https://fundedhero.com/?custom_add_to_cart=${productId}`;
   }
   // Fallback to main pricing page if product ID not found
   return 'https://fundedhero.com/#pricing-plan';
