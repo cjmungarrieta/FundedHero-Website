@@ -122,7 +122,7 @@ export default function PricingCards() {
         const products = Array.isArray(data.products) ? data.products : [];
         const byId = new Map<number, any>();
         products.forEach((p: any) => {
-          if (p && p.id) {
+          if (p && p.id && !p.error) {
             byId.set(Number(p.id), p);
           }
         });
