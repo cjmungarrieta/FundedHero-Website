@@ -184,13 +184,14 @@ export default function ComparisonSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mt-12"
           >
-            <motion.button
+            <motion.a
+              href="#plans"
               whileHover={{ scale: 1.05, y: -4 }}
               whileTap={{ scale: 0.95 }}
-              className="fhx-button px-12 py-5 rounded-2xl text-lg font-bold"
+              className="fhx-button px-12 py-5 rounded-2xl text-lg font-bold inline-block"
             >
               <span className="static-text-glow">Start Your Challenge Now</span>
-            </motion.button>
+            </motion.a>
             <p className="text-gray-400 mt-4 text-sm">
               Join 10,000+ traders who chose the better way to get funded
             </p>

@@ -71,6 +71,10 @@ const withdrawalMethods = [
 ];
 
 export default function PayoutsPage() {
+  const scrollToPlans = () => {
+    document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark to-dark"></div>
@@ -237,13 +241,15 @@ export default function PayoutsPage() {
           <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
             Withdrawals are processed within 24 hours. First payout is always free!
           </p>
-          <motion.button
+          <motion.a
+            href="#plans"
+            onClick={scrollToPlans}
             whileHover={{ scale: 1.05, y: -4 }}
             whileTap={{ scale: 0.95 }}
-            className="fhx-button px-10 py-4 rounded-xl text-lg font-bold"
+            className="fhx-button px-10 py-4 rounded-xl text-lg font-bold inline-block"
           >
             <span className="static-text-glow">Request Payout Now</span>
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

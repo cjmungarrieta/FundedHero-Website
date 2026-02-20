@@ -134,7 +134,8 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.button
+              <motion.a
+                href="#plans"
                 onClick={scrollToPlans}
                 whileHover={{ scale: 1.03, y: -4 }}
                 whileTap={{ scale: 0.97 }}
@@ -144,7 +145,7 @@ export default function Hero() {
                   Start Your Challenge
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                 </span>
-              </motion.button>
+              </motion.a>
 
               <motion.button
                 onClick={scrollToHowItWorks}
