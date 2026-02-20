@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
 
-// Using certificates with proper file sizes (not truncated)
-// Files with spaces need to be URL-encoded
+const base = import.meta.env.BASE_URL;
+
 const certificates = [
-  '/certificates_fundedhero5.png',
-  '/certificates_fundedhero6%20copy%20copy%20copy.png', // Full file
-  '/certificates_fundedhero7%20copy.png',
-  '/certificates_fundedhero8%20copy%20copy%20copy.png', // Full file
-  '/certificates_fundedhero9.png',
-  '/certificates_fundedhero10.png',
-  '/certificates_fundedhero7%20copy%20copy.png',
-  '/certificates_fundedhero9%20copy.png',
-  '/certificates_fundedhero10%20copy.png',
-  '/certificates_fundedhero6%20copy.png', // Full file
+  `${base}certificates_fundedhero5.png`,
+  `${base}certificates_fundedhero6 copy copy copy.png`,
+  `${base}certificates_fundedhero7 copy.png`,
+  `${base}certificates_fundedhero8 copy copy copy.png`,
+  `${base}certificates_fundedhero9.png`,
+  `${base}certificates_fundedhero10.png`,
+  `${base}certificates_fundedhero7 copy copy.png`,
+  `${base}certificates_fundedhero9 copy.png`,
+  `${base}certificates_fundedhero10 copy.png`,
+  `${base}certificates_fundedhero6 copy.png`,
 ];
 
 export default function CertificateCarousel() {

@@ -76,7 +76,7 @@ export default function Footer() {
               className="mb-4"
             >
               <img
-                src="/logo.png"
+                src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="FundedHero Logo"
                 className="h-14 w-auto object-contain mb-4 drop-shadow-[0_0_15px_rgba(255,200,0,0.4)]"
               />
