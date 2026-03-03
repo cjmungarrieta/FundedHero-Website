@@ -9,10 +9,7 @@ const features = [
   { name: 'News Trading Allowed', fundedHero: true, competitor1: false, competitor2: true, competitor3: false },
   { name: 'Weekend Holding', fundedHero: true, competitor1: true, competitor2: false, competitor3: true },
   { name: 'EA/Bots Allowed', fundedHero: true, competitor1: true, competitor2: true, competitor3: false },
-  { name: 'Free First Payout', fundedHero: true, competitor1: false, competitor2: false, competitor3: false },
   { name: 'Refundable Fee', fundedHero: true, competitor1: false, competitor2: true, competitor3: false },
-  { name: 'Copy Trading Allowed', fundedHero: true, competitor1: false, competitor2: false, competitor3: true },
-  { name: 'Consistency Rules', fundedHero: false, competitor1: true, competitor2: true, competitor3: true },
   { name: 'Unlimited Retakes', fundedHero: true, competitor1: false, competitor2: false, competitor3: true },
 ];
 

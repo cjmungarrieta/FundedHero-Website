@@ -1,15 +1,18 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { DollarSign, TrendingUp, Clock, CheckCircle, CreditCard, Bitcoin, Building2, Calendar } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
-const recentPayouts = [
-  { id: 1, trader: 'Michael R.', date: '2024-12-23', amount: '$8,420', status: 'completed' },
-  { id: 2, trader: 'Sarah C.', date: '2024-12-22', amount: '$12,850', status: 'completed' },
-  { id: 3, trader: 'James T.', date: '2024-12-22', amount: '$5,200', status: 'completed' },
-  { id: 4, trader: 'Emma W.', date: '2024-12-21', amount: '$15,600', status: 'completed' },
-  { id: 5, trader: 'David K.', date: '2024-12-21', amount: '$9,340', status: 'completed' },
-  { id: 6, trader: 'Lisa M.', date: '2024-12-20', amount: '$7,890', status: 'completed' },
-  { id: 7, trader: 'Robert P.', date: '2024-12-20', amount: '$11,250', status: 'completed' },
-  { id: 8, trader: 'Anna S.', date: '2024-12-19', amount: '$6,500', status: 'completed' },
+const NAMES = ['Michael R.', 'Sarah C.', 'James T.', 'Emma W.', 'David K.', 'Lisa M.', 'Robert P.', 'Anna S.', 'Alex B.', 'Maria G.', 'Kevin S.', 'Elena P.'];
+
+const initialPayouts = [
+  { id: 1, trader: 'Michael R.', date: '2026-03-02', amount: '$8,420', status: 'completed' },
+  { id: 2, trader: 'Sarah C.', date: '2026-03-02', amount: '$12,850', status: 'completed' },
+  { id: 3, trader: 'James T.', date: '2026-03-02', amount: '$5,200', status: 'completed' },
+  { id: 4, trader: 'Emma W.', date: '2026-03-01', amount: '$15,600', status: 'completed' },
+  { id: 5, trader: 'David K.', date: '2026-03-01', amount: '$9,340', status: 'completed' },
+  { id: 6, trader: 'Lisa M.', date: '2026-02-28', amount: '$7,890', status: 'completed' },
+  { id: 7, trader: 'Robert P.', date: '2026-02-28', amount: '$11,250', status: 'completed' },
+  { id: 8, trader: 'Anna S.', date: '2026-02-27', amount: '$6,500', status: 'completed' },
 ];
 
 const statistics = [
@@ -71,6 +74,22 @@ const withdrawalMethods = [
 ];
 
 export default function PayoutsPage() {
+  const [recentPayouts, setRecentPayouts] = useState(initialPayouts);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newPayout = {
+        id: Date.now(),
+        trader: NAMES[Math.floor(Math.random() * NAMES.length)],
+        date: '2026-03-02',
+        amount: `$${(Math.floor(Math.random() * 12000) + 2000).toLocaleString()}`,
+        status: 'completed',
+      };
+      setRecentPayouts(prev => [newPayout, ...prev.slice(0, 7)]);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToPlans = () => {
     document.getElementById('plans')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -179,50 +198,53 @@ export default function PayoutsPage() {
             <h2 className="text-2xl font-bold text-white mb-6">Recent Payouts</h2>
             <div className="glass-premium rounded-2xl backdrop-blur-2xl border border-white/10 overflow-hidden">
               <div className="max-h-[500px] overflow-y-auto">
-                <table className="w-full">
-                  <thead className="bg-white/5 sticky top-0 z-10">
+                <table className="w-full text-left">
+                  <thead className="bg-[#0B0A09] sticky top-0 z-10 border-b border-white/10">
                     <tr>
-                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-400">TRADER</th>
-                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-400">DATE</th>
-                      <th className="px-6 py-4 text-right text-xs font-semibold text-gray-400">AMOUNT</th>
-                      <th className="px-6 py-4 text-center text-xs font-semibold text-gray-400">STATUS</th>
+                      <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Trader</th>
+                      <th className="px-6 py-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">Date</th>
+                      <th className="px-6 py-4 text-right text-xs font-semibold text-gray-400 uppercase tracking-wider">Amount</th>
+                      <th className="px-6 py-4 text-center text-xs font-semibold text-gray-400 uppercase tracking-wider">Status</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    {recentPayouts.map((payout, index) => (
-                      <motion.tr
-                        key={payout.id}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
-                        className="border-b border-white/5 hover:bg-white/5 transition-colors duration-200"
-                      >
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-gradient-to-br from-gold/20 to-gold-light/20 rounded-full flex items-center justify-center text-xs font-bold text-gold">
-                              {payout.trader.split(' ')[0][0]}{payout.trader.split(' ')[1][0]}
+                  <tbody className="divide-y divide-white/5">
+                    <AnimatePresence initial={false}>
+                      {recentPayouts.map((payout) => (
+                        <motion.tr
+                          key={payout.id}
+                          layout
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.95 }}
+                          transition={{ duration: 0.3 }}
+                          className="hover:bg-white/5 transition-colors duration-200"
+                        >
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 bg-gradient-to-br from-gold/20 to-gold-light/20 rounded-full flex items-center justify-center text-xs font-bold text-gold">
+                                {payout.trader.split(' ')[0][0]}{payout.trader.split(' ').length > 1 ? payout.trader.split(' ')[1][0] : ''}
+                              </div>
+                              <span className="text-white font-medium text-sm">{payout.trader}</span>
                             </div>
-                            <span className="text-white font-medium text-sm">{payout.trader}</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center gap-1 text-gray-400 text-sm">
-                            <Calendar className="w-3 h-3" />
-                            <span>{payout.date}</span>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                          <span className="text-gold font-bold text-sm">{payout.amount}</span>
-                        </td>
-                        <td className="px-6 py-4">
-                          <div className="flex items-center justify-center gap-1">
-                            <CheckCircle className="w-4 h-4 text-success" />
-                            <span className="text-success text-xs font-medium">Paid</span>
-                          </div>
-                        </td>
-                      </motion.tr>
-                    ))}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="flex items-center gap-1 text-gray-400 text-sm">
+                              <Calendar className="w-3 h-3" />
+                              <span>{payout.date}</span>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4 text-right whitespace-nowrap">
+                            <span className="text-gold font-bold text-sm tracking-tight">{payout.amount}</span>
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap">
+                            <div className="flex items-center justify-center gap-1">
+                              <CheckCircle className="w-4 h-4 text-success" />
+                              <span className="text-success text-xs font-semibold">Paid</span>
+                            </div>
+                          </td>
+                        </motion.tr>
+                      ))}
+                    </AnimatePresence>
                   </tbody>
                 </table>
               </div>

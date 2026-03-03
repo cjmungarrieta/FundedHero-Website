@@ -1,18 +1,40 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Star, DollarSign, Quote } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { CommunityGuardian } from './GoldenSentinel';
 import { URLS } from '../constants/urls';
 
-const payouts = [
-  { name: 'J. R.', country: 'US', amount: 3240 },
-  { name: 'M. S.', country: 'UK', amount: 5840 },
-  { name: 'K. L.', country: 'CA', amount: 2150 },
-  { name: 'A. T.', country: 'AU', amount: 8920 },
-  { name: 'T. P.', country: 'DE', amount: 4650 },
-  { name: 'L. M.', country: 'BR', amount: 7280 },
+const initialPayouts = [
+  { id: 1, name: 'J. R.', country: 'US', amount: 3240, date: 'March 2026' },
+  { id: 2, name: 'M. S.', country: 'UK', amount: 5840, date: 'March 2026' },
+  { id: 3, name: 'K. L.', country: 'CA', amount: 2150, date: 'March 2026' },
+  { id: 4, name: 'A. T.', country: 'AU', amount: 8920, date: 'March 2026' },
+  { id: 5, name: 'T. P.', country: 'DE', amount: 4650, date: 'March 2026' },
+  { id: 6, name: 'L. M.', country: 'BR', amount: 7280, date: 'March 2026' },
 ];
 
+const NAMES = ['Alex B.', 'Maria G.', 'Kevin S.', 'Elena P.', 'Chris W.', 'Yuki H.', 'Zoe L.', 'Marco R.', 'Anna K.', 'Sam T.'];
+const COUNTRIES = ['US', 'UK', 'CA', 'DE', 'FR', 'ES', 'BR', 'AU', 'JP', 'SG'];
+
 export default function Community() {
+  const [displayPayouts, setDisplayPayouts] = useState(initialPayouts);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newPayout = {
+        id: Date.now(),
+        name: NAMES[Math.floor(Math.random() * NAMES.length)],
+        country: COUNTRIES[Math.floor(Math.random() * COUNTRIES.length)],
+        amount: Math.floor(Math.random() * 8000) + 1500,
+        date: 'March 2026',
+      };
+
+      setDisplayPayouts(prev => [newPayout, ...prev.slice(0, 5)]);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-20 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 animated-gradient-bg opacity-50"></div>
@@ -75,42 +97,46 @@ export default function Community() {
             </div>
           </motion.a>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             <h3 className="text-2xl font-display font-bold text-white mb-6">Recent Payouts</h3>
-            {payouts.map((payout, index) => (
-              <motion.div
-                key={payout.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ x: 4 }}
-                className="glass-premium rounded-2xl p-5 flex items-center justify-between hover:glass-ultra transition-all duration-500"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gold to-gold-light rounded-full flex items-center justify-center text-black font-bold text-sm">
-                    {payout.name.split(' ')[0]}
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">{payout.name} · {payout.country}</div>
-                    <div className="text-sm text-gray-400">Recent Payout</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <DollarSign className="w-5 h-5 text-success" />
-                  <span className="text-2xl font-display font-bold text-success">
-                    ${payout.amount.toLocaleString()}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+            <div className="flex flex-col gap-4">
+              <AnimatePresence initial={false}>
+                {displayPayouts.map((payout) => (
+                  <motion.div
+                    key={payout.id}
+                    layout
+                    initial={{ opacity: 0, height: 0, x: -20 }}
+                    animate={{ opacity: 1, height: 'auto', x: 0 }}
+                    exit={{ opacity: 0, height: 0, x: 20 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                      opacity: { duration: 0.2 }
+                    }}
+                    whileHover={{ x: 4 }}
+                    className="glass-premium rounded-2xl p-5 flex items-center justify-between hover:glass-ultra transition-all duration-500 overflow-hidden"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-gold to-gold-light rounded-full flex items-center justify-center text-black font-bold text-sm">
+                        {payout.name.split(' ')[0][0]}{payout.name.split(' ').length > 1 ? payout.name.split(' ')[1][0] : ''}
+                      </div>
+                      <div>
+                        <div className="font-bold text-white">{payout.name} · {payout.country}</div>
+                        <div className="text-sm text-gray-400">{payout.date || 'March 2026'}</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <DollarSign className="w-5 h-5 text-success" />
+                      <span className="text-2xl font-display font-bold text-success">
+                        ${payout.amount.toLocaleString()}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
 
         <motion.div
