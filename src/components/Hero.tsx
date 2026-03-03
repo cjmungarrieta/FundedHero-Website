@@ -35,12 +35,12 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative min-h-[100vh] flex items-center justify-center overflow-x-clip circuit-pattern pt-[166px]">
-      <div className="light-beam light-beam-1"></div>
-      <div className="light-beam light-beam-2"></div>
-      <div className="light-beam light-beam-3"></div>
+      <div className="light-beam light-beam-1" style={{ willChange: 'transform, opacity' }}></div>
+      <div className="light-beam light-beam-2" style={{ willChange: 'transform, opacity' }}></div>
+      <div className="light-beam light-beam-3" style={{ willChange: 'transform, opacity' }}></div>
 
       <motion.div
-        style={{ y, opacity }}
+        style={{ y, opacity, willChange: 'transform, opacity' }}
         className="absolute inset-0 animated-gradient-bg noise-texture"
       >
         <div className="absolute inset-0">
@@ -51,6 +51,7 @@ export default function Hero() {
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute top-20 left-20 w-[600px] h-[600px] bg-gold/20 rounded-full blur-[120px]"
+            style={{ willChange: 'transform, opacity' }}
           />
           <motion.div
             animate={{
@@ -59,6 +60,7 @@ export default function Hero() {
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute bottom-20 right-20 w-[700px] h-[700px] bg-black/40 rounded-full blur-[120px]"
+            style={{ willChange: 'transform, opacity' }}
           />
         </div>
 
@@ -169,7 +171,7 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="lens-flare"
-              style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+              style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', willChange: 'transform, opacity' }}
             />
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -194,6 +196,7 @@ export default function Hero() {
                     animate={{ scale: [1, 1.15, 1], opacity: [1, 0.8, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                     className="px-3 py-1.5 bg-success/20 text-success rounded-full text-xs md:text-sm font-bold border border-success/40 flex items-center gap-2 backdrop-blur-xl"
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     <span className="w-2 h-2 rounded-full bg-success animate-pulse"></span>
                     LIVE
@@ -208,6 +211,7 @@ export default function Hero() {
                   transition={{ duration: 0.6, delay: 0.8 }}
                   whileHover={{ x: 4, scale: 1.02 }}
                   className="glass-premium rounded-xl p-4 hover:glass-ultra transition-all duration-500 animate-float"
+                  style={{ willChange: 'transform' }}
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-xs md:text-sm text-gray-400">Account Size</span>
@@ -222,6 +226,7 @@ export default function Hero() {
                   transition={{ duration: 0.6, delay: 0.9 }}
                   whileHover={{ x: 4, scale: 1.02 }}
                   className="glass-premium rounded-xl p-4 hover:glass-ultra transition-all duration-500 animate-float-delay"
+                  style={{ willChange: 'transform' }}
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-xs md:text-sm text-gray-400">Profit Target</span>
@@ -237,6 +242,7 @@ export default function Hero() {
                   transition={{ duration: 0.6, delay: 1.0 }}
                   whileHover={{ x: 4, scale: 1.02 }}
                   className="glass-premium rounded-xl p-4 hover:glass-ultra transition-all duration-500 animate-float"
+                  style={{ willChange: 'transform' }}
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-xs md:text-sm text-gray-400">Max Drawdown</span>
@@ -252,6 +258,7 @@ export default function Hero() {
                   transition={{ duration: 0.6, delay: 1.1 }}
                   whileHover={{ x: 4, scale: 1.02 }}
                   className="glass-premium rounded-xl p-4 hover:glass-ultra transition-all duration-500 border-2 border-success/30 animate-float-delay"
+                  style={{ willChange: 'transform' }}
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="text-xs md:text-sm text-gray-400">Current Profit</span>
@@ -300,6 +307,7 @@ export default function Hero() {
                 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-10 -right-10 w-64 h-64 bg-gradient-to-br from-gold/30 to-gold-light/20 rounded-full blur-[100px] pointer-events-none"
+                style={{ willChange: 'transform, opacity' }}
               />
             </motion.div>
             <motion.div
@@ -314,6 +322,7 @@ export default function Hero() {
                 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -bottom-10 -left-10 w-64 h-64 bg-gradient-to-br from-black/40 to-gold/20 rounded-full blur-[100px] pointer-events-none"
+                style={{ willChange: 'transform, opacity' }}
               />
             </motion.div>
           </motion.div>

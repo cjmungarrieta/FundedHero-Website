@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import AnnouncementBanner from './components/AnnouncementBanner';
-import CursorGlow from './components/CursorGlow';
 import Starfield from './components/Starfield';
 import NotificationSystem from './components/NotificationSystem';
 import HomePage from './pages/HomePage';
@@ -13,7 +12,6 @@ function App() {
     <Router>
       <div className="min-h-screen bg-black relative" style={{ zIndex: 3 }}>
         <Starfield />
-        <CursorGlow />
         <NotificationSystem />
         <AnnouncementBanner />
         <Navigation />

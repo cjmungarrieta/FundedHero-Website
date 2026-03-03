@@ -170,7 +170,7 @@ export default function PricingCards() {
   const activeType = challengeTypes.find(t => t.id === activeChallenge);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || window.innerWidth < 1024) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -207,6 +207,7 @@ export default function PricingCards() {
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-40 left-20 w-[500px] h-[500px] bg-gold/20 rounded-full blur-[120px] pointer-events-none"
+        style={{ willChange: 'transform, opacity' }}
       />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -271,22 +272,20 @@ export default function PricingCards() {
                 onClick={() => setActiveChallenge(type.id)}
                 whileHover={{ scale: 1.03, y: -4 }}
                 whileTap={{ scale: 0.97 }}
-                className={`relative p-5 rounded-2xl font-semibold transition-all duration-500 text-left ${
-                  activeChallenge === type.id
+                className={`relative p-5 rounded-2xl font-semibold transition-all duration-500 text-left ${activeChallenge === type.id
                     ? 'glass-ultra border-2 border-gold/50 gold-glow'
                     : 'glass-premium hover:glass-ultra hover:border-gold/30 hover:shadow-[0_0_30px_rgba(255,200,0,0.3)]'
-                }`}
+                  }`}
               >
                 {type.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-gold to-gold-light text-black text-xs font-bold rounded-full whitespace-nowrap">
                     {type.badge}
                   </div>
                 )}
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${
-                  activeChallenge === type.id
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${activeChallenge === type.id
                     ? 'bg-gradient-to-br from-gold to-gold-light'
                     : 'bg-white/10'
-                }`}>
+                  }`}>
                   <Icon className={`w-5 h-5 ${activeChallenge === type.id ? 'text-black' : 'text-gold'}`} />
                 </div>
                 <div className={`font-display font-bold mb-1 ${activeChallenge === type.id ? 'text-gold' : 'text-white'}`}>
@@ -317,11 +316,10 @@ export default function PricingCards() {
                 onClick={() => setSelectedSize(size.value)}
                 whileHover={{ scale: 1.08, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-5 py-3 rounded-xl font-bold transition-all duration-300 ${
-                  selectedSize === size.value
+                className={`px-5 py-3 rounded-xl font-bold transition-all duration-300 ${selectedSize === size.value
                     ? 'bg-gold text-black shadow-xl gold-glow'
                     : 'glass text-white hover:glass-premium hover:border-gold/30 hover:shadow-[0_0_25px_rgba(255,200,0,0.2)]'
-                }`}
+                  }`}
               >
                 {size.label}
               </motion.button>
@@ -392,7 +390,7 @@ export default function PricingCards() {
                 whileTap={{ scale: 0.97 }}
                 className="fhx-button px-10 py-5 rounded-2xl text-lg group"
               >
-                <span className="flex items-center gap-2 static-text-glow">
+                <span className="flex items-center gap-3 static-text-glow">
                   Buy Challenge
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>

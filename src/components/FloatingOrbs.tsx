@@ -11,7 +11,7 @@ export default function FloatingOrbs() {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 2 }}>
       <motion.div
-        style={{ y: orb1Y }}
+        style={{ y: orb1Y, willChange: 'transform, opacity' }}
         animate={{
           x: [0, 100, 0],
           scale: [1, 1.2, 1],
@@ -26,7 +26,7 @@ export default function FloatingOrbs() {
       />
 
       <motion.div
-        style={{ y: orb2Y, background: 'radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, transparent 70%)' }}
+        style={{ y: orb2Y, background: 'radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, transparent 70%)', willChange: 'transform, opacity' }}
         animate={{
           x: [0, -80, 0],
           scale: [1, 1.3, 1],
@@ -42,7 +42,7 @@ export default function FloatingOrbs() {
       />
 
       <motion.div
-        style={{ y: orb3Y }}
+        style={{ y: orb3Y, willChange: 'transform, opacity' }}
         animate={{
           x: [0, 60, 0],
           scale: [1, 1.1, 1],
@@ -58,7 +58,7 @@ export default function FloatingOrbs() {
       />
 
       <motion.div
-        style={{ y: orb4Y, background: 'radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%)' }}
+        style={{ y: orb4Y, background: 'radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%)', willChange: 'transform, opacity' }}
         animate={{
           x: [0, -90, 0],
           scale: [1, 1.25, 1],
