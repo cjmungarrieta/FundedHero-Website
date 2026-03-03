@@ -31,7 +31,7 @@ const stats = [
     icon: Star,
     number: 4.8,
     suffix: '/5',
-    label: 'TrustScore (1,000+ Reviews)',
+    label: 'High Rated by Customers',
     animated: true,
     decimals: 1,
   },

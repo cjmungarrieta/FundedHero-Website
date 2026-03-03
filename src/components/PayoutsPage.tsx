@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { DollarSign, Clock, CheckCircle, CreditCard, Bitcoin, Building2, Calendar } from 'lucide-react';
+import { DollarSign, Clock, CheckCircle, CreditCard, Bitcoin, Building2, Calendar, Zap } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const NAMES = ['Michael R.', 'Sarah C.', 'James T.', 'Emma W.', 'David K.', 'Lisa M.', 'Robert P.', 'Anna S.', 'Alex B.', 'Maria G.', 'Kevin S.', 'Elena P.'];
@@ -15,16 +15,22 @@ const initialPayouts = [
   { id: 8, trader: 'Anna S.', date: '2026-02-27', amount: '$6,500', status: 'completed' },
 ];
 
-
-
 const withdrawalMethods = [
+  {
+    icon: Zap,
+    name: 'Rise',
+    description: 'Fast and secure payouts via Rise platform',
+    time: 'Within 24 hours',
+    fee: 'Free',
+    popular: true,
+  },
   {
     icon: Building2,
     name: 'Bank Transfer',
     description: 'Direct deposit to your bank account',
     time: '1-3 business days',
     fee: 'Free',
-    popular: true,
+    popular: false,
   },
   {
     icon: Bitcoin,
@@ -66,7 +72,7 @@ export default function PayoutsPage() {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="pt-32 pb-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark to-dark"></div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -204,10 +210,10 @@ export default function PayoutsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-ultra rounded-2xl p-8 backdrop-blur-2xl border border-gold/30 text-center"
+          className="text-center pt-8 pb-4"
         >
           <h3 className="text-2xl font-bold text-white mb-3">Ready to Request Your Payout?</h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
             Withdrawals are processed within 24 hours.
           </p>
           <motion.a
@@ -215,7 +221,7 @@ export default function PayoutsPage() {
             onClick={scrollToPlans}
             whileHover={{ scale: 1.05, y: -4 }}
             whileTap={{ scale: 0.95 }}
-            className="fhx-button px-10 py-4 rounded-xl text-lg font-bold inline-block"
+            className="fhx-button px-10 py-5 rounded-xl text-lg font-bold inline-block"
           >
             <span className="static-text-glow">Request Payout Now</span>
           </motion.a>
