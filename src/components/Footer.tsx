@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, CreditCard, Bitcoin, Instagram, Facebook, Twitter, MessageCircle, Send } from 'lucide-react';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { URLS } from '../constants/urls';
 
-export default function Footer() {
+const Footer = memo(function Footer() {
   const [email, setEmail] = useState('');
 
   const socialLinks = [
@@ -199,7 +199,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-6 pt-6 border-t border-white/5">
             <p className="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto">
               <strong className="text-gray-400">DISCLAIMER:</strong> Funded Hero offers a simulated trading environment intended solely for educational and evaluation purposes. All trading within this environment is simulated and does not involve real financial transactions. Performance and pricing may not reflect actual market conditions and can be affected by factors such as high volatility, seasonal changes, and geopolitical events. Simulated trading is a valuable tool for learning and strategy development, but it does not eliminate trading risks or ensure success in live markets. Past performance in the simulation does not guarantee future results. Funded Hero does not provide financial, investment, or trading advice. All trading decisions and outcomes are the sole responsibility of the user.
@@ -209,4 +209,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;

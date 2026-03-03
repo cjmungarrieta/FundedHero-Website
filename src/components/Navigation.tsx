@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { URLS } from '../constants/urls';
 
-export default function Navigation() {
+const Navigation = memo(function Navigation() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('forex');
@@ -18,7 +18,6 @@ export default function Navigation() {
 
   const handleForexClick = () => {
     setActiveTab('forex');
-    // Stay on current site (forex)
   };
 
   const handleFuturesClick = () => {
@@ -55,11 +54,10 @@ export default function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleForexClick}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-500 ${
-                  activeTab === 'forex'
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-500 ${activeTab === 'forex'
                     ? 'bg-gradient-to-r from-gold to-gold-light text-black shadow-lg'
                     : 'text-gray-300 hover:text-white'
-                }`}
+                  }`}
               >
                 {t('nav.forex')}
               </motion.button>
@@ -67,11 +65,10 @@ export default function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleFuturesClick}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-500 ${
-                  activeTab === 'futures'
+                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-500 ${activeTab === 'futures'
                     ? 'bg-gradient-to-r from-gold to-gold-light text-black shadow-lg'
                     : 'text-gray-300 hover:text-white'
-                }`}
+                  }`}
               >
                 {t('nav.futures')}
               </motion.button>
@@ -88,7 +85,7 @@ export default function Navigation() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-gold-light group-hover:w-full transition-all duration-300"></span>
               </motion.div>
             </Link>
-            
+
             <motion.a
               href="#plans"
               whileHover={{ y: -2 }}
@@ -97,7 +94,7 @@ export default function Navigation() {
               {t('nav.plans')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-gold-light group-hover:w-full transition-all duration-300"></span>
             </motion.a>
-            
+
             <motion.a
               href={URLS.HELP_CENTER}
               target="_blank"
@@ -108,7 +105,7 @@ export default function Navigation() {
               {t('nav.rules')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-gold-light group-hover:w-full transition-all duration-300"></span>
             </motion.a>
-            
+
             <motion.a
               href={URLS.DISCORD}
               target="_blank"
@@ -119,7 +116,7 @@ export default function Navigation() {
               {t('nav.discord')}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold to-gold-light group-hover:w-full transition-all duration-300"></span>
             </motion.a>
-            
+
             <motion.a
               href="#plans"
               whileHover={{ scale: 1.05, y: -2 }}
@@ -133,7 +130,7 @@ export default function Navigation() {
               />
               <span className="relative z-10">{t('nav.startChallenge')}</span>
             </motion.a>
-            
+
             <motion.a
               href={URLS.LOGIN}
               target="_blank"
@@ -164,21 +161,19 @@ export default function Navigation() {
             <div className="flex gap-2 mb-4">
               <button
                 onClick={handleForexClick}
-                className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  activeTab === 'forex'
+                className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === 'forex'
                     ? 'bg-gradient-to-r from-gold to-gold-light text-black'
                     : 'glass-premium text-gray-300'
-                }`}
+                  }`}
               >
                 {t('nav.forex')}
               </button>
               <button
                 onClick={handleFuturesClick}
-                className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                  activeTab === 'futures'
+                className={`flex-1 px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${activeTab === 'futures'
                     ? 'bg-gradient-to-r from-gold to-gold-light text-black'
                     : 'glass-premium text-gray-300'
-                }`}
+                  }`}
               >
                 {t('nav.futures')}
               </button>
@@ -233,4 +228,6 @@ export default function Navigation() {
       </div>
     </motion.nav>
   );
-}
+});
+
+export default Navigation;

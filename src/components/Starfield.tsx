@@ -7,7 +7,7 @@ export default function Starfield() {
     const container = containerRef.current;
     if (!container) return;
 
-    const starCount = 150;
+    const starCount = 90;
     const stars: HTMLDivElement[] = [];
 
     for (let i = 0; i < starCount; i++) {
