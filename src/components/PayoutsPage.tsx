@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { DollarSign, TrendingUp, Clock, CheckCircle, CreditCard, Bitcoin, Building2, Calendar } from 'lucide-react';
+import { DollarSign, Clock, CheckCircle, CreditCard, Bitcoin, Building2, Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const NAMES = ['Michael R.', 'Sarah C.', 'James T.', 'Emma W.', 'David K.', 'Lisa M.', 'Robert P.', 'Anna S.', 'Alex B.', 'Maria G.', 'Kevin S.', 'Elena P.'];
@@ -15,36 +15,7 @@ const initialPayouts = [
   { id: 8, trader: 'Anna S.', date: '2026-02-27', amount: '$6,500', status: 'completed' },
 ];
 
-const statistics = [
-  {
-    icon: DollarSign,
-    label: 'Total Paid Out',
-    value: '$2.4M',
-    change: '+$147K this week',
-    color: 'from-gold to-gold-light',
-  },
-  {
-    icon: Clock,
-    label: 'Pending Payouts',
-    value: '$89.2K',
-    change: '12 requests',
-    color: 'from-blue-500 to-blue-400',
-  },
-  {
-    icon: TrendingUp,
-    label: 'Monthly Average',
-    value: '$856K',
-    change: '+22% from last month',
-    color: 'from-success to-success',
-  },
-  {
-    icon: CheckCircle,
-    label: 'Average Time',
-    value: '6.8 hrs',
-    change: 'Fastest in industry',
-    color: 'from-purple-500 to-purple-400',
-  },
-];
+
 
 const withdrawalMethods = [
   {
@@ -113,30 +84,6 @@ export default function PayoutsPage() {
             Fast, secure, and transparent payout processing. Get your earnings in as little as 7 hours.
           </p>
         </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {statistics.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="glass-premium rounded-2xl p-6 backdrop-blur-2xl border border-white/10"
-              >
-                <div className={`w-12 h-12 bg-gradient-to-br ${stat.color} rounded-xl flex items-center justify-center mb-4 shadow-lg`}>
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <p className="text-gray-400 text-sm mb-2">{stat.label}</p>
-                <h3 className="text-3xl font-bold text-white mb-2">{stat.value}</h3>
-                <p className="text-sm text-gray-500">{stat.change}</p>
-              </motion.div>
-            );
-          })}
-        </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           <motion.div
@@ -261,7 +208,7 @@ export default function PayoutsPage() {
         >
           <h3 className="text-2xl font-bold text-white mb-3">Ready to Request Your Payout?</h3>
           <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Withdrawals are processed within 24 hours. First payout is always free!
+            Withdrawals are processed within 24 hours.
           </p>
           <motion.a
             href="#plans"

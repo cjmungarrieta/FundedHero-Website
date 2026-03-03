@@ -18,15 +18,15 @@ export default function HomePage() {
       <Hero />
       <Statistics />
       <ComparisonSection />
+      <PricingCards />
+      <VoiceAgent />
       <LiveGallery />
       <PayoutsPage />
       <CertificateCarousel />
       <HowItWorks />
-      <PricingCards />
       <Features />
       <Community />
       <FAQ />
-      <VoiceAgent />
       <BottomCTA />
     </>
   );
