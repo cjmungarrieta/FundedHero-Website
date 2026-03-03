@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "How often do I get paid?",
-    answer: "You can request payouts anytime once you're funded. Our average payout processing time is approximately 7 hours once approved. Most traders receive their funds the same day.",
+    answer: "You can request payouts bi weekly depending on you account type.",
   },
   {
     question: "Can I trade during news events?",
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "Do you refund the challenge fee?",
-    answer: "Yes, once you become a funded trader and receive your first payout, we refund your initial challenge fee. This means your evaluation is essentially free when you succeed.",
+    answer: "Yes, we do offer refunds once you qualify for your payouts. This means your evaluation is basically free ",
   },
 ];
 
